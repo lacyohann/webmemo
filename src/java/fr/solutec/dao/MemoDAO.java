@@ -29,6 +29,7 @@ public class MemoDAO {
             m.setId(rs.getInt("idmemo"));
             m.setContenu(rs.getString("Contenu"));
             m.setDateCreation(rs.getDate("date_creation"));
+            m.setBefore_update(rs.getInt("before_update"));
             
             User u = new User();
             u.setId(rs.getInt("user_id"));

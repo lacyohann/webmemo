@@ -16,41 +16,34 @@ public class Memo {
         private String contenu;
         private Date dateCreation;
         private User createur;
+        private int before_update;
     
     //alt + insert
     public Memo() {
     }
 
-    public Memo(int id, String contenu, Date dateCreation, User createur) {
+    public Memo(int id, String contenu, Date dateCreation, User createur, int before_update) {
         this.id = id;
         this.contenu = contenu;
         this.dateCreation = dateCreation;
         this.createur = createur;
+        this.before_update = before_update;
     }
-
 
     public int getId() {
         return id;
-    }
-
-    public String getContenu() {
-        return contenu;
-    }
-
-    public User getCreateur() {
-        return createur;
     }
 
     public void setId(int id) {
         this.id = id;
     }
 
-    public void setContenu(String contenu) {
-        this.contenu = contenu;
+    public String getContenu() {
+        return contenu;
     }
 
-    public void setCreateur(User createur) {
-        this.createur = createur;
+    public void setContenu(String contenu) {
+        this.contenu = contenu;
     }
 
     public Date getDateCreation() {
@@ -60,6 +53,22 @@ public class Memo {
     public void setDateCreation(Date dateCreation) {
         this.dateCreation = dateCreation;
     }
-        
+
+    public User getCreateur() {
+        return createur;
+    }
+
+    public void setCreateur(User createur) {
+        this.createur = createur;
+    }
+
+    public int getBefore_update() {
+        return before_update;
+    }
+
+    public void setBefore_update(int before_update) {
+        this.before_update = before_update;
+    }      
+
     
 }
