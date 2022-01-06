@@ -69,5 +69,6 @@ public class Memo {
     public void setBefore_update(int before_update) {
         this.before_update = before_update;
     }      
+
     
 }

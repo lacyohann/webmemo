@@ -38,6 +38,11 @@
                                 <td>${m.contenu}</td>
                                 <td>${m.createur.prenom} ${m.createur.nom}</td>
                                 <td>${m.dateCreation}</td>
+                                    <c:if test="${m.before_update != 0}">
+                                        <form action="" method="POST">
+                                            <td><button type="button" class="btn btn-link"><i class="fas fa-guitar"></i></button></td>
+                                        </form>
+                                    </c:if>
                             </tr>
                         </c:forEach>
                     </tbody>
