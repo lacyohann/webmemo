@@ -1,0 +1,29 @@
+h1{
+    color : steelblue;
+}
+
+.cadre-login{
+    margin: auto;
+    width: 30%;
+}
+
+.mt15-perso{
+    margin-top: 8rem;
+}
+
+.my-shadow{
+    box-shadow: 0 19px 40px rgba(0, 0, 0, 0.50) !important;
+}
+
+
+.my-card-header{
+    background-color: #aa66cc !important; 
+    color: white;
+    text-align: center;
+}
+
+h4{
+    font-size: 1em !important;
+    font-weight: 500 !important;
+    
+}
