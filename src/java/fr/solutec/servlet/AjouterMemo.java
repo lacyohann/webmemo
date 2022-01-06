@@ -81,7 +81,7 @@ public class AjouterMemo extends HttpServlet {
         String texte = request.getParameter("nouveaumemo");
         HttpSession session = request.getSession();
         User u = (User) session.getAttribute("userConnect");
-        Memo m = new Memo(0, texte, null, u);
+        Memo m = new Memo(0, texte, null, u,0);
 
         try {
             MemoDAO.insertMemo(m);
