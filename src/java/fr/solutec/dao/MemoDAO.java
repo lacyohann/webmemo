@@ -9,6 +9,7 @@ import java.util.List;
 import fr.solutec.model.Memo;
 import fr.solutec.model.User;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -41,5 +42,14 @@ public class MemoDAO {
         }
         
         return memos;
+    }
+    
+    public static void insertMemo(Memo m) throws SQLException {
+        String sql = "INSERT INTO memo (contenu, user_id) VALUES (?, ?)";
+        Connection connexion = AccesBd.getConnection();
+        PreparedStatement prepare = connexion.prepareStatement(sql);
+        prepare.setString(1, m.getContenu());
+        prepare.setInt(2, m.getCreateur().getId());
+        prepare.execute();
     }
 }

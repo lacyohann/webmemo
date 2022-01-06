@@ -48,6 +48,7 @@
                      <i class="fas fa-power-off"></i> Déconnexion
                  </a>
             </li>
+            
         </ul> 
     </body>
 </html>
