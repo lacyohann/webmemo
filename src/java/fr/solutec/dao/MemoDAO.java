@@ -55,7 +55,7 @@ public class MemoDAO {
             prefixe = m.getContenu().substring(0, 7);   //on récupère les 7 premiers caractères de la chaine contenu
             String flash = "*flash*";       //prefixe pour memo flash
             
-            if (prefixe.equals(flash)) {    //si prefixe est égal à *flash* alors...
+            if (prefixe.equals(flash)) {    //si prefixe est égal à *flash* alors... 
 
                 String sql = "DELETE FROM memo WHERE idmemo = " + m.getId();    //on récupère dans une chaine la commande sql pour supprimer la ligne de la BD
                 Connection connexion = AccesBd.getConnection(); //connexion à la BD
