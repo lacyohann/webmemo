@@ -44,10 +44,11 @@
                  <a class="nav-link white-text" href="#!">Mémo public</a>
             </li>
             <li class="nav-item">
-                 <a class="nav-link white-text" href="logout" style="color: #cc0000 !important"> 
+                 <a class="nav-link white-text" href="logout" style="color: pink !important"> 
                      <i class="fas fa-power-off"></i> Déconnexion
                  </a>
             </li>
+            
         </ul> 
     </body>
 </html>

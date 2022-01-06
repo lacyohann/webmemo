@@ -17,17 +17,19 @@ public class Memo {
         private Date dateCreation;
         private User createur;
         private Boolean prive; 
+        private int before_update;
     
     //alt + insert
     public Memo() {
     }
 
-    public Memo(int id, String contenu, Date dateCreation, User createur, Boolean prive) {
+    public Memo(int id, String contenu, Date dateCreation, User createur, int before_update, Boolean prive) {
         this.id = id;
         this.contenu = contenu;
         this.dateCreation = dateCreation;
         this.createur = createur;
         this.prive = prive;
+        this.before_update = before_update;
     }
 
 
@@ -47,6 +49,7 @@ public class Memo {
         return prive;
     }
 
+
     public void setId(int id) {
         this.id = id;
     }
@@ -54,6 +57,7 @@ public class Memo {
     public void setPrive(Boolean prive) {
         this.prive = prive;
     }
+
 
     public void setContenu(String contenu) {
         this.contenu = contenu;
@@ -70,6 +74,14 @@ public class Memo {
     public void setDateCreation(Date dateCreation) {
         this.dateCreation = dateCreation;
     }
-        
+
+    public int getBefore_update() {
+        return before_update;
+    }
+
+    public void setBefore_update(int before_update) {
+        this.before_update = before_update;
+    }      
+
     
 }

@@ -38,11 +38,59 @@
                                 <td>${m.contenu}</td>
                                 <td>${m.createur.prenom} ${m.createur.nom}</td>
                                 <td>${m.dateCreation}</td>
+                                    <c:if test="${m.before_update != 0}">
+                                        <form action="" method="POST">
+                                            <td><button type="button" class="btn btn-link"><i class="fas fa-guitar"></i></button></td>
+                                        </form>
+                                    </c:if>
                             </tr>
                         </c:forEach>
+                            
+                    <br>
+                    <br>
+                    
                     </tbody>
                 </table>
             </div>
         </div>
+        
+        <br>
+        <br>
+        <form action="AjouterMemo" method="POST">
+            
+        
+        <div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header text-center">
+                  <h4 class="modal-title w-100 font-weight-bold">Insérer texte</h4>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body mx-3">
+                  <div class="md-form mb-5">
+                    <i class="prefix"></i>
+                    <input name="nouveaumemo" type="text" >
+    
+                  </div>
+
+                  
+
+                </div>
+                <div class="modal-footer d-flex justify-content-center">
+                    <button type="submit" class="btn btn-default">Valider</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="text-center">
+            <a href="" class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalLoginForm">Ajouter
+                memo</a>
+          </div>
+          </form>
+        
     </body>
 </html>
