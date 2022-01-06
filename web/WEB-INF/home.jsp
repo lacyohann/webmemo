@@ -29,16 +29,24 @@
                             <th>Contenu</th>
                             <th>Créateur</th>
                             <th>Date de création</th>
+                            <th>Supprimer</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <c:forEach items="${memos}" var="m">    
-                            <tr>
-                                <td>${m.id}</td>
-                                <td>${m.contenu}</td>
-                                <td>${m.createur.prenom} ${m.createur.nom}</td>
-                                <td>${m.dateCreation}</td>
-                            </tr>
+                        <c:forEach items="${memos}" var="m"> 
+                            <form action="Delete" method="GET">
+                                <tr>
+                                    <td><input type="text" value="${m.id}" name="id" readonly></td>
+                                    <td>${m.contenu}</td>
+                                    <td>${m.createur.prenom} ${m.createur.nom}</td>
+                                    <td>${m.dateCreation}</td>
+                                    <td>
+                                        <button type="submit">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </form>
                         </c:forEach>
                     </tbody>
                 </table>

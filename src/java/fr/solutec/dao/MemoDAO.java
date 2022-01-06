@@ -9,6 +9,7 @@ import java.util.List;
 import fr.solutec.model.Memo;
 import fr.solutec.model.User;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -42,4 +43,13 @@ public class MemoDAO {
         
         return memos;
     }
+    
+    public static void deleteMemo(int id) throws SQLException {
+        String sql = "DELETE FROM memo WHERE idmemo= ?;";
+        Connection connexion = AccesBd.getConnection();
+        PreparedStatement prepare = connexion.prepareStatement(sql);
+        prepare.setInt(1, id);
+        prepare.execute();
+    }
+    
 }
