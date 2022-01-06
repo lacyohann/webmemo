@@ -5,6 +5,7 @@
  */
 package fr.solutec.servlet;
 
+import fr.solutec.dao.MemoDAO;
 import fr.solutec.model.User;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -60,6 +61,15 @@ public class DecoServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        try {
+            MemoDAO.deleteFlash();      //on essaye de supprimer les lignes flash
+            
+        } catch (Exception e) {
+            PrintWriter out = response.getWriter();
+            out.println("exp : " + e.getMessage());
+        }
+        
         HttpSession session = request.getSession();
         User u = (User) session.getAttribute("userConnect");
         session.invalidate();

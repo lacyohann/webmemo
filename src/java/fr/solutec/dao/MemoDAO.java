@@ -14,6 +14,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 
 public class MemoDAO {
@@ -45,6 +46,25 @@ public class MemoDAO {
         return memos;
     }
     
+    public static void deleteFlash() throws SQLException{
+        
+        List<Memo> memos = getAllMemo(); //on récupère la liste via la fonction getAllMemo()
+        
+        for(Memo m : memos){    //on parcourt la liste memos avec un objet m de type Memo 
+            
+            String prefixe;
+            prefixe = m.getContenu().substring(0, 7);   //on récupère les 7 premiers caractères de la chaine contenu
+            String flash = "*flash*";       //prefixe pour memo flash
+            
+            if (prefixe.equals(flash)) {    //si prefixe est égal à *flash* alors... 
+
+                String sql = "DELETE FROM memo WHERE idmemo = " + m.getId();    //on récupère dans une chaine la commande sql pour supprimer la ligne de la BD
+                Connection connexion = AccesBd.getConnection(); //connexion à la BD
+                Statement state = connexion.createStatement();  //création du statut
+                state.executeUpdate(sql);                       //exécution de la ligne sql
+            }
+        }
+    }
     public static void deleteMemo(int id) throws SQLException {
         String sql = "DELETE FROM memo WHERE idmemo= ?;";
         Connection connexion = AccesBd.getConnection();
