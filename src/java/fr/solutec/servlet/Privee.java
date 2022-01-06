@@ -22,8 +22,8 @@ import javax.servlet.http.HttpSession;
  *
  * @author dsi
  */
-@WebServlet(name = "HomeServlet", urlPatterns = {"/home"})
-public class HomeServlet extends HttpServlet {
+@WebServlet(name = "Privee", urlPatterns = {"/Privee"})
+public class Privee extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -42,24 +42,15 @@ public class HomeServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet HomeServlet</title>");            
+            out.println("<title>Servlet Privee</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet HomeServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet Privee at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
     }
-
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -81,10 +72,10 @@ public class HomeServlet extends HttpServlet {
         if (u != null) {
             
             try {
-                List<Memo> memos = MemoDAO.getAllMemo();
-                request.setAttribute("memos", memos);
+                List<Memo> pmemos = MemoDAO.getPrivateMemo();
+                request.setAttribute("memos", pmemos);
                 request.setAttribute("user", u);
-                request.getRequestDispatcher("WEB-INF/home.jsp").forward(request, response);
+                request.getRequestDispatcher("WEB-INF/menuprive.jsp").forward(request, response);
 
             } catch (Exception e) {
                 PrintWriter out = response.getWriter();

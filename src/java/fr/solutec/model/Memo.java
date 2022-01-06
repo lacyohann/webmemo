@@ -16,16 +16,18 @@ public class Memo {
         private String contenu;
         private Date dateCreation;
         private User createur;
+        private Boolean prive; 
     
     //alt + insert
     public Memo() {
     }
 
-    public Memo(int id, String contenu, Date dateCreation, User createur) {
+    public Memo(int id, String contenu, Date dateCreation, User createur, Boolean prive) {
         this.id = id;
         this.contenu = contenu;
         this.dateCreation = dateCreation;
         this.createur = createur;
+        this.prive = prive;
     }
 
 
@@ -40,9 +42,17 @@ public class Memo {
     public User getCreateur() {
         return createur;
     }
+    
+    public Boolean getPrive() {
+        return prive;
+    }
 
     public void setId(int id) {
         this.id = id;
+    }
+    
+    public void setPrive(Boolean prive) {
+        this.prive = prive;
     }
 
     public void setContenu(String contenu) {

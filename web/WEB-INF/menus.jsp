@@ -38,7 +38,7 @@
                 <a class="nav-link active white-text" href="#!">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link white-text" href="#!">Mémo privé</a>
+                <a class="nav-link white-text" href="Privee">Mémo privé</a>
             </li>
             <li class="nav-item">
                  <a class="nav-link white-text" href="#!">Mémo public</a>

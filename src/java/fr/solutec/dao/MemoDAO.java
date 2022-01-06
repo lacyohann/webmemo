@@ -19,7 +19,7 @@ public class MemoDAO {
     
     public static List<Memo> getAllMemo() throws SQLException{
         List<Memo> memos = new ArrayList<>();
-        String sql = "SELECT * FROM memo m INNER JOIN user u ON u.id = m.user_id";
+        String sql = "SELECT * FROM memo m INNER JOIN user u ON u.id = m.user_id AND prive=false";
         Connection connexion = AccesBd.getConnection();
         Statement state = connexion.createStatement();
         ResultSet rs = state.executeQuery(sql);
@@ -41,5 +41,32 @@ public class MemoDAO {
         }
         
         return memos;
+    }
+    
+    public static List<Memo> getPrivateMemo() throws SQLException{
+        List<Memo> pmemos = new ArrayList<>();
+        String sql = "SELECT * FROM memo p INNER JOIN user u ON u.id = p.user_id AND prive=true";
+        Connection connexion = AccesBd.getConnection();
+        Statement state = connexion.createStatement();
+        ResultSet rs = state.executeQuery(sql);
+        while (rs.next()){
+            Memo p = new Memo();
+            p.setId(rs.getInt("idmemo"));
+            p.setContenu(rs.getString("Contenu"));
+            p.setDateCreation(rs.getDate("date_creation"));
+            p.setPrive(rs.getBoolean("Prive"));
+            
+            User u = new User();
+            u.setId(rs.getInt("user_id"));
+            u.setNom(rs.getString("nom"));
+            u.setPrenom(rs.getString("prenom"));
+            u.setLogin(rs.getString("login"));
+            
+            p.setCreateur(u);
+            
+            pmemos.add(p);
+        }
+        
+        return pmemos;
     }
 }
